@@ -1,0 +1,1585 @@
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+     </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Correo Electrón>
+                        <input type="email" name="cliente_correo" class="w-full border p-2 rounde>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Ruta -->
+            <div class="col-span-1 border-b pb-4 md:border-b-0 md:border-r md:pr-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📍 Ruta</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Origen</label>
+                        <input type="text" name="origen" placeholder="Ej. Puerto de Manzanillo" c>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Destino</label>
+                        <input type="text" name="destino" class="w-full border p-2 rounded focus:>
+                    </div>    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+@extends('layouts.app')
+
+@section('contenido')
+<div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+    <div class="bg-slate-900 px-6 py-4">
+        <h2 class="text-2xl font-bold text-white">🚚 Generar Nueva Cotización</h2>
+    </div>
+
+    <form action="{{ route('cotizacion.guardar') }}" method="POST" class="p-6">
+        @csrf
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Datos del Cliente -->
+            <div class="col-span-1 md:col-span-2 border-b pb-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">👤 Datos del Cliente</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Nombre / Empresa</label>
+                        <input type="text" name="cliente_nombre" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Correo Electrónico</label>
+                        <input type="email" name="cliente_correo" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Ruta -->
+            <div class="col-span-1 border-b pb-4 md:border-b-0 md:border-r md:pr-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📍 Ruta</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Origen</label>
+                        <input type="text" name="origen" placeholder="Ej. Puerto de Manzanillo" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Destino</label>
+                        <input type="text" name="destino" cl                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Distancia Estimada (KM)</label>
+                        <input type="number" step="0.1" name="distancia_km" id="distancia_km" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Carga -->
+            <div class="col-span-1 pl-0 md:pl-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-3">📦 Detalles de Carga</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Tipo de Contenedor</label>
+                        <select name="tipo_contenedor" id="tipo_contenedor" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="20_pies">20 Pies (Estándar)</option>
+                            <option value="40_pies">40 Pies (Estándar)</option>
+                            <option value="40_hc">40 Pies High Cube (HC)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Peso (Toneladas)</label>
+                        <input type="number" step="0.1" name="peso_toneladas" id="peso_toneladas" class="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 trigger-calc" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de Precio en Tiempo Real -->
+        <div class="mt-8 bg-slate-50 border border-slate-200 rounded-lg p-6 text-right">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Desglose de Cotización</h3>
+            <div class="text-sm text-slate-600 mb-1">Subtotal: $<span id="lbl_subtotal">0.00</span></div>
+            <div class="text-sm text-red-600 font-bold mb-3 hidden" id="div_custodia">
+                + Custodia Automática (Por Seguridad): $<span id="lbl_custodia">0.00</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 border-t pt-2">
+                Total: $<span id="lbl_total">0.00</span> <span class="text-sm font-normal text-slate-500">MXN</span>
+            </div>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition shadow-lg text-lg">
+            📄 Guardar y Generar PDF
+        </button>
+    </form>
+</div>
+
+<!-- Lógica de Cálculo en Tiempo Real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.trigger-calc');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularPrecio);
+        input.addEventListener('change', calcularPrecio);
+    });
+
+    async function calcularPrecio() {
+        const tipoContenedor = document.getElementById('tipo_contenedor').value;
+        const distancia = document.getElementById('distancia_km').value;
+        const peso = document.getElementById('peso_toneladas').value;
+
+        // Solo consultamos al servidor si tenemos los 3 datos requeridos
+        if (!tipoContenedor || !distancia || !peso) return;
+
+        try {
+            const response = await fetch("{{ route('cotizacion.calcular') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    tipo_contenedor: tipoContenedor,
+                    distancia_km: distancia,
+                    peso_toneladas: peso
+                })
+            });
+
+            if (!response.ok) throw new Error("Error en el cálculo");
+
+            const data = await response.json();
+
+            // Actualizar la pantalla con los datos del servidor
+            document.getElementById('lbl_subtotal').innerText = parseFloat(data.subtotal).toFixed(2);
+            document.getElementById('lbl_total').innerText = parseFloat(data.total).toFixed(2);
+
+            const divCustodia = document.getElementById('div_custodia');
+            if (data.requiere_custodia) {
+                document.getElementById('lbl_custodia').innerText = parseFloat(data.costo_custodia).toFixed(2);
+                divCustodia.classList.remove('hidden');
+            } else {
+                divCustodia.classList.add('hidden');
+            }
+
+        } catch (error) {
+            console.error("Error contactando al servidor:", error);
+        }
+    }
+});
+</script>
+@endsection
+
