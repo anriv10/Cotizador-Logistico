@@ -37,3 +37,10 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::post('/historial/{id}/reenviar', [HistorialController::class, 'reenviar'])->name('historial.reenviar');
 
 });
+
+Route::get('/forzar-error', function () {
+    \Illuminate\Support\Facades\Mail::raw('Prueba desde terminal', function($message) { 
+        $message->to('anriv3100@gmail.com')->subject('Prueba Error'); 
+    });
+    return '¡El correo sí salió!';
+});
