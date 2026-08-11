@@ -37,6 +37,10 @@ return [
 
     'mailers' => [
 
+        'brevo' => [
+            'transport' => 'brevo',
+        ],
+
         'smtp' => [
             'transport' => 'smtp',
             'scheme' => env('MAIL_SCHEME'),
@@ -82,6 +86,10 @@ return [
         'failover' => [
             'transport' => 'failover',
             'mailers' => [
+
+        'brevo' => [
+            'transport' => 'brevo',
+        ],
                 'smtp',
                 'log',
             ],
@@ -91,6 +99,10 @@ return [
         'roundrobin' => [
             'transport' => 'roundrobin',
             'mailers' => [
+
+        'brevo' => [
+            'transport' => 'brevo',
+        ],
                 'ses',
                 'postmark',
             ],
