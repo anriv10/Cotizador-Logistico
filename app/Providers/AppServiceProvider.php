@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        \Illuminate\Support\Facades\Mail::extend("brevo", function () {
+            return new \Symfony\Component\Mailer\Bridge\Brevo\Transport\BrevoApiTransport(env("BREVO_API_KEY"));
+        });
+
         if (config("app.env") === "production") {
             \URL::forceScheme("https");
         }
