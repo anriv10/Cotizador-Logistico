@@ -41,6 +41,7 @@ return [
             'transport' => 'brevo',
         ],
 
+        'brevo' => ['transport' => 'brevo'],
         'smtp' => [
             'transport' => 'smtp',
             'scheme' => env('MAIL_SCHEME'),
