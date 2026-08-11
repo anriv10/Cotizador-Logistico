@@ -77,7 +77,7 @@ class CotizacionController extends Controller
             // Se envía ÚNICA y EXCLUSIVAMENTE al Administrador
             $correoAdministrador = env('MAIL_FROM_ADDRESS', 'cotizaciones@logisticamx.com');
             
-            Mail::to($correoAdministrador)
+            Mail::to($correoAdministrador)->cc($cotizacion->cliente_correo)
                 ->send(new CotizacionMail($cotizacion));
                 
         } catch (\Exception $e) {
