@@ -81,7 +81,7 @@ class CotizacionController extends Controller
                 ->send(new CotizacionMail($cotizacion));
                 
         } catch (\Exception $e) {
-            \Log::warning("Error al notificar al administrador: " . $e->getMessage());
+            dd($e->getMessage());
         }
 
         return view('cotizacion.confirmacion', compact('cotizacion'));
